@@ -1,0 +1,30 @@
+main {
+  height: 90vh;
+}
+
+.title-2 {
+  color: var(--clr-ruby);
+  font-weight: 600;
+  margin: 0;
+  transition: 0.3s;
+}
+
+.title-2:hover {
+  font-weight: 700;
+  transition: font-weight 0.3s, font-size 1s ease;
+  font-size: calc(5rem + 4.5vw);
+}
+
+.title,
+.title-2 {
+  font-size: calc(3rem + 3vw);
+}
+
+.info {
+  font-weight: 300;
+  font-size: calc(0.75rem + 0.5vw);
+}
+
+.btn-discover {
+  padding: 0.75rem 1.5625rem;
+}

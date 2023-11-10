@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800&display=swap");
+
+:root {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --clr-ruby: #c16e70;
+  --clr-ruby-rgb: rgb(192, 109, 110);
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: #f5f5f5;
+}
+
+p {
+  margin: 0;
+}
+
+hr {
+  width: 100% !important;
+}
+.btn-dark {
+  display: flex;
+  padding: 0.625rem 1.5625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  width: fit-content;
+
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+
+  background: var(--clr-ruby);
+
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-light {
+  display: flex;
+  padding: 0.625rem 1.5625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  width: fit-content;
+
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+
+  background: var(--clr-ruby);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-dark:hover,
+.btn-dark:focus {
+  background-color: transparent;
+  border: 1px solid #000;
+  color: #000;
+  border-radius: 0;
+  box-shadow: 2px 4px 1px 0 #000;
+  transition: all 0.3s ease-in-out, border-radius 1s ease-out,
+    box-shadow 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.btn-light:hover,
+.btn-light:focus {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 0;
+  box-shadow: 2px 4px 1px 0 #fff;
+  transition: all 0.3s ease-in-out, border-radius 1s ease-out,
+    box-shadow 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+body::-webkit-scrollbar {
+  width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+  /* outline: 1px solid #000; */
+  /* border-left: 1px solid red; */
+
+  box-shadow: inset 0 0 6px rgba(180, 37, 37, 0);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--clr-ruby);
+}

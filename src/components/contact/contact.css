@@ -1,0 +1,104 @@
+#contact {
+  min-height: 75vh;
+}
+
+.contact-bg {
+  background-color: #9098a2;
+}
+
+.contact-title {
+  font-size: calc(1.5rem + 1vw);
+  font-weight: 700;
+  line-height: 175%;
+  letter-spacing: 0.5625rem;
+}
+
+.contact-desc {
+  font-weight: 300;
+  font-size: calc(1rem + 0.25vw);
+  max-width: 60ch;
+}
+
+.contact-form {
+  background-color: #fff;
+}
+
+.modal-title {
+  font-weight: 300;
+  letter-spacing: 4px;
+  font-size: calc(2rem + 1vw);
+}
+
+.modal-sub-title {
+  font-weight: 250;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  margin-bottom: 0.125rem;
+  transition: font-weight 0.3s;
+}
+
+.modal-sub-title:hover {
+  /* color: var(--clr-ruby); */
+  font-weight: 600;
+  transition: font-weight 0.3s;
+}
+
+.modal-input {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: 0.3s ease-in-out, border-radius 1s ease-out;
+}
+
+.modal-input:focus {
+  background-color: transparent;
+  color: #000;
+  border-radius: 0;
+  border: #000 1px solid;
+  box-shadow: 0px 2px 1px 0 #000;
+  transition: 0.3s ease-in-out, border-radius 1s ease-out,
+    box-shadow 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.modal-input:hover {
+  background-color: transparent;
+  color: #000;
+  border-radius: 0;
+  border: #000 1px solid;
+  box-shadow: 2px 4px 1px 0 #000;
+  transition: 0.3s ease-in-out, border-radius 1s ease-out,
+    box-shadow 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.contact-btn-close .btn-close {
+  filter: invert(11%) sepia(59%) saturate(5053%) hue-rotate(334deg)
+    brightness(88%) contrast(111%);
+  opacity: 1;
+  outline: 1px solid #000;
+  border-radius: 1rem;
+  transition: 0.3s ease-in;
+}
+
+.contact-btn-close .btn-close:hover,
+.contact-btn-close .btn-close:focus {
+  filter: brightness(0);
+  filter: 1;
+  transition: filter 0.3s ease-in-out;
+  outline: 1px solid #000;
+  border-radius: 0;
+  transition: 0.3s ease-in;
+}
+
+.toast-bg-dark .toast-header {
+  background-color: #fff;
+  color: var(--clr-ruby);
+  border-radius: 0;
+  border: 0;
+}
+
+.toast-bg-dark .toast-body {
+  background-color: var(--clr-ruby);
+  color: #fff;
+  border-radius: 0;
+  border: 0;
+  outline: 0;
+}
