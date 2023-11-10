@@ -7,10 +7,7 @@ import email from "../extras/email.svg";
 
 const Footer = () => {
   return (
-    <footer
-      className="container-fluid footer-bg position-sticky bottom-0 top-100 left-0"
-      id="footer"
-    >
+    <footer className="container-fluid footer-bg" id="footer">
       <div className="container pt-5 text-white">
         <nav className="navbar navbar-dark d-flex justify-content-center align-items-center py-5">
           <ul className="navbar-nav d-flex flex-row gap-5 ">
