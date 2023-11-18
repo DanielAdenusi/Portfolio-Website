@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="container-fluid footer-bg" id="footer">
       <div className="container pt-5 py-0 text-white text-center">
         <div className="container pt-4">
-          <section className="footer-nav mb-3 ">
+          <section className="footer-nav mt-3 ">
             {/* <!-- Linkedin --> */}
             <a
               className="btn btn-floating m-1 footer-btn"
