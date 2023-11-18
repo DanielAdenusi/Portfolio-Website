@@ -6,45 +6,56 @@
   background-color: #000;
 }
 
-.footer-link {
-  color: #fff;
-}
-
-.footer-link {
-  font-size: 1.5rem;
-  font-weight: 300;
-  letter-spacing: 5px;
-  padding-bottom: 0;
-  padding-top: 0;
-}
-
-.footer-link-container {
-  width: calc(20px + 1vw);
-  height: calc(20px + 1vw);
-}
-
-.footer-link-container img {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.footer-nav-item {
-  display: flex;
-  border: 1.5px solid transparent;
-
-  border-radius: 50%;
-  padding: 0.5rem;
-  /* opacity: 0.75; */
-}
-
-.footer-nav-item:hover {
-  border: 1.5px solid #afbfd3;
-  border-radius: 0;
-  background-color: transparent;
-  transition: border-radius 0.5s ease, background-color 0.5s ease;
-}
 .footer-name {
   color: #515861;
   pointer-events: none;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer-btn {
+  border-radius: 50%;
+  padding: 0.75rem;
+}
+
+.footer-btn .bi {
+  display: block;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  font-size: 1.125rem;
+}
+
+.footer-btn:hover .bi {
+  color: #000;
+  width: 100%;
+  height: fit-content;
+  /* background-color: green; */
+}
+
+.bi {
+  display: flex !important;
+}
+
+.footer-btn:hover#linkedin,
+.footer-btn:hover#github,
+.footer-btn:hover#email {
+  background-color: #fff;
+}
+
+.footer-btn#linkedin {
+  background-color: #0082ca;
+}
+
+.footer-btn#github {
+  background-color: #333333;
+}
+
+.footer-btn#email {
+  background-color: #dd4b39;
 }
