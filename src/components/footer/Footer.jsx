@@ -31,7 +31,7 @@ const Footer = () => {
             </a>
             {/* <!-- Email --> */}
             <a
-              className="btn text-white btn-floating m-1 footer-btn"
+              className="btn btn-floating m-1 footer-btn"
               href="mailto:danieladenusi26@gmail.com?subject=Getting In Touch"
               role="button"
               data-mdb-ripple-color="dark"
