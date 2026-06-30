@@ -1,6 +1,6 @@
 # Portfolio Website
 
-A personal endeavour showcasing my journey as a final year Computer Science student at Loughborough University. This repository contains the source code for my personal portfolio, which I will continually update with new projects and technical milestones.
+A personal endeavour showcasing my journey as a graduate Computer Science student at Loughborough University. This repository contains the source code for my personal portfolio, which I will continually update with new projects and technical milestones.
 
 ## About Me
 

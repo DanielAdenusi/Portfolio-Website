@@ -24,15 +24,66 @@ const iconMap = {
 	server: Server,
 };
 
+const ProjectDetailSkeleton = () => (
+	<div className="project-detail-page">
+		<Section variant="projects" className="project-detail-page__section">
+			<Container>
+				<article
+					className="project-detail-page__content project-detail-page__content--skeleton"
+					aria-hidden="true"
+				>
+					<div className="project-detail-page__skeleton-back-link"></div>
+					<div className="project-detail-page__skeleton-carousel"></div>
+					<header className="project-detail-page__title-row">
+						<div className="project-detail-page__skeleton-icon"></div>
+						<div className="project-detail-page__skeleton-heading-stack">
+							<div className="project-detail-page__skeleton-kicker"></div>
+							<div className="project-detail-page__skeleton-title"></div>
+						</div>
+					</header>
+					<div className="project-detail-page__skeleton-tags">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+					<div className="project-detail-page__skeleton-lead"></div>
+					<div className="project-detail-page__article-layout">
+						<aside className="project-detail-page__skeleton-toc">
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+						</aside>
+						<div className="project-detail-page__skeleton-body">
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+						</div>
+					</div>
+				</article>
+				<span className="sr-only">Loading project...</span>
+			</Container>
+		</Section>
+		<Footer />
+	</div>
+);
+
 export const ProjectDetail = () => {
 	const { projectId } = useParams();
 	const [project, setProject] = useState(() =>
 		getProjectById(projectId || ""),
 	);
+	const [isLoading, setIsLoading] = useState(true);
 	const [activeMediaIndex, setActiveMediaIndex] = useState(0);
 
 	useEffect(() => {
 		let isMounted = true;
+		const seedProject = getProjectById(projectId || "");
+
+		setProject(seedProject || null);
+		setIsLoading(true);
+		setActiveMediaIndex(0);
 
 		getProject(projectId || "")
 			.then(({ project }) => {
@@ -46,12 +97,21 @@ export const ProjectDetail = () => {
 					setProject(getProjectById(projectId || "") || null);
 					setActiveMediaIndex(0);
 				}
+			})
+			.finally(() => {
+				if (isMounted) {
+					setIsLoading(false);
+				}
 			});
 
 		return () => {
 			isMounted = false;
 		};
 	}, [projectId]);
+
+	if (isLoading && !project) {
+		return <ProjectDetailSkeleton />;
+	}
 
 	if (!project) {
 		return (

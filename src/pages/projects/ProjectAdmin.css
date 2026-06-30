@@ -147,8 +147,7 @@
 	transition: transform var(--animation-emphasised);
 }
 
-.project-admin-page
-	.project-admin-page__back-link:is(:hover, :focus-visible) {
+.project-admin-page .project-admin-page__back-link:is(:hover, :focus-visible) {
 	color: var(--content-primary);
 }
 
@@ -219,7 +218,8 @@
 }
 
 .project-admin-page label {
-	display: grid;
+	display: flex;
+	flex-direction: column;
 	gap: 0.45rem;
 	color: var(--content-tertiary);
 	font-size: var(--fontSize-caption);
@@ -310,11 +310,21 @@
 
 .project-admin-page__upload {
 	min-block-size: 7rem;
-	place-items: center;
+	align-items: center;
+	justify-content: center;
 	border: 1px dashed var(--border-secondary);
 	border-radius: var(--borderRadius-s);
 	background: var(--background-secondary);
 	cursor: pointer;
+
+	transition:
+		border-color var(--animation-hover),
+		background var(--animation-emphasised);
+}
+
+.project-admin-page__upload:is(:hover, :focus-visible) {
+	border-color: var(--content-accent);
+	background: var(--background-tertiary);
 }
 
 .project-admin-page__upload input {
@@ -333,7 +343,7 @@
 
 .project-admin-page__media-item {
 	display: grid;
-	grid-template-columns: 7rem minmax(0, 1fr) auto;
+	grid-template-columns: auto 7rem minmax(0, 1fr) auto;
 	gap: var(--spacing-s);
 	align-items: center;
 	padding: var(--spacing-s);
@@ -341,6 +351,28 @@
 	border-color: var(--border-primary);
 	border-radius: var(--borderRadius-s);
 	background: var(--background-secondary);
+}
+
+.project-admin-page__media-item.is-dragging {
+	border-color: var(--content-accent);
+	background: var(--background-tertiary);
+}
+
+.project-admin-page__media-drag-handle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--content-tertiary);
+	cursor: grab;
+}
+
+.project-admin-page__media-drag-handle svg {
+	inline-size: 1.1rem;
+	block-size: 1.1rem;
+}
+
+.project-admin-page__media-item:active .project-admin-page__media-drag-handle {
+	cursor: grabbing;
 }
 
 .project-admin-page__media-item img {

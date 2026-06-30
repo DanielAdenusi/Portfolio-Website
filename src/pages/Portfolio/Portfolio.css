@@ -162,6 +162,30 @@
 	font-style: italic;
 }
 
+.portfolio-project-card {
+	align-items: flex-start;
+}
+
+.portfolio-project-card .widget-title-hover {
+	transition: text-decoration-color var(--animation-emphasised);
+}
+
+.portfolio-project-card:is(:hover, :focus-visible) .widget-title-hover {
+	text-decoration: underline;
+	text-underline-offset: 4px;
+	text-decoration-thickness: 2px;
+}
+
+.portfolio-project-card__media {
+	overflow: hidden;
+}
+
+.portfolio-project-card__media img {
+	inline-size: 100%;
+	block-size: 100%;
+	object-fit: cover;
+}
+
 .portfolio-reading-actions {
 	display: flex;
 	margin-block-start: var(--spacing-s);
@@ -169,8 +193,8 @@
 
 .portfolio-project-widget__title {
 	margin: 0;
-	margin-block-end: var(--spacing-xs);
-	font-size: var(--fontSize-lead);
+	margin-block-end: var(--spacing-2xs);
+	font-size: var(--fontSize-body-s);
 }
 
 .portfolio-project-widget__excerpt {

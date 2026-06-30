@@ -183,8 +183,7 @@ export const Portfolio = () => {
 				return false;
 			}
 
-			const sectionMidpoint =
-				sectionRect.top + sectionRect.height / 2;
+			const sectionMidpoint = sectionRect.top + sectionRect.height / 2;
 			const viewportMidpoint = window.innerHeight / 2;
 			const hasPassedSectionMidpoint =
 				sectionMidpoint <= viewportMidpoint;
@@ -400,25 +399,18 @@ export const Portfolio = () => {
 						<Navigation />
 
 						<LeadStory
-							headline="Engineering narratives through seamless code."
+							headline="Engineering the Web, One Line at a Time."
 							ctaLink="#projects"
 							ctaText="Continue to Volume II"
 							imageSrc="/images/portfolio-portrait.jpg"
-							imageAlt="A portrait of Daniel Adenusi, a final-year Computer Science student."
+							imageAlt="A portrait of Daniel Adenusi, a graduate Computer Science student."
 						>
-							am Daniel Adenusi, a final-year Computer Science
-							student constructing thoughtful digital experiences.
-							Much like a well-crafted broadsheet, I believe
-							software should be highly readable, deeply
-							considered, and visually engaging without
-							compromising on underlying structural integrity or
-							performance metrics. My focus lies at the
-							intersection of robust backend architecture and
-							meticulous frontend design. Currently, I am
-							exploring the complex mechanics of full-stack
-							development, transitioning academic theory into
-							production-ready, interactive user interfaces
-							designed for real-world application.
+							am Daniel Adenusi, a graduate Computer Science
+							student focused on software engineering and web
+							development. I build polished, user-centred web
+							experiences with thoughtful architecture, reliable
+							data flows, and an eye for the small details that
+							make products feel clear.
 						</LeadStory>
 
 						<aside className="portfolio-sidebar">
@@ -521,9 +513,9 @@ export const Portfolio = () => {
 								) : latestProject ? (
 									<Link
 										to={`/projects/${latestProject.id}`}
-										className="widget__link"
+										className="portfolio-reading-card portfolio-project-card is-clickable"
 									>
-										<div className="widget__image">
+										<div className="portfolio-reading-card__cover portfolio-project-card__media">
 											{latestProject.media[0]?.src ? (
 												<img
 													src={
@@ -535,25 +527,26 @@ export const Portfolio = () => {
 															.alt ||
 														latestProject.title
 													}
-													className="widget__image-photo"
 												/>
 											) : (
-												<LatestProjectIcon className="widget__image-icon" />
+												<LatestProjectIcon />
 											)}
 										</div>
-										<Typography
-											as="h4"
-											variant="display"
-											className="portfolio-project-widget__title widget-title-hover"
-										>
-											{latestProject.title}
-										</Typography>
-										<Typography
-											variant="muted"
-											className="portfolio-project-widget__excerpt"
-										>
-											{latestProject.excerpt}
-										</Typography>
+										<div>
+											<Typography
+												as="h4"
+												variant="display"
+												className="portfolio-reading-card__title portfolio-project-widget__title widget-title-hover"
+											>
+												{latestProject.title}
+											</Typography>
+											<Typography
+												variant="muted"
+												className="portfolio-project-widget__excerpt"
+											>
+												{latestProject.excerpt}
+											</Typography>
+										</div>
 									</Link>
 								) : (
 									<div className="portfolio-project-empty">
