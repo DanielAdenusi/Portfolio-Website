@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import {
 	ArrowLeft,
 	Database,
+	GripVertical,
 	ImagePlus,
 	Layout,
 	Plus,
@@ -137,6 +138,7 @@ export const ProjectAdmin = () => {
 	const [deleteTargetProjectId, setDeleteTargetProjectId] = useState("");
 	const [pendingDeletedMediaPublicIds, setPendingDeletedMediaPublicIds] =
 		useState([]);
+	const [draggedMediaIndex, setDraggedMediaIndex] = useState(null);
 	const [lastSavedSnapshot, setLastSavedSnapshot] = useState(
 		JSON.stringify(emptyProject),
 	);
@@ -253,6 +255,53 @@ export const ProjectAdmin = () => {
 
 		updateForm((current) => ({
 			tags: Array.from(new Set([...current.tags, ...nextTags])),
+			technologies: (() => {
+				const existingTechnologyNames = new Set(
+					current.technologies
+						.map((technology) =>
+							technology.name.trim().toLowerCase(),
+						)
+						.filter(Boolean),
+				);
+				const missingTechnologies = [];
+
+				nextTags.forEach((tag) => {
+					const normalizedTag = tag.toLowerCase();
+
+					if (existingTechnologyNames.has(normalizedTag)) {
+						return;
+					}
+
+					existingTechnologyNames.add(normalizedTag);
+					missingTechnologies.push(tag);
+				});
+
+				if (!missingTechnologies.length) {
+					return current.technologies;
+				}
+
+				const nextTechnologies = [...current.technologies];
+				const blankIndex = nextTechnologies.findIndex(
+					(technology) =>
+						!technology.name.trim() && !technology.info.trim(),
+				);
+				const technologiesToAppend = [...missingTechnologies];
+
+				if (blankIndex >= 0) {
+					nextTechnologies[blankIndex] = {
+						info: "",
+						name: technologiesToAppend.shift(),
+					};
+				}
+
+				return [
+					...nextTechnologies,
+					...technologiesToAppend.map((name) => ({
+						info: "",
+						name,
+					})),
+				];
+			})(),
 		}));
 		setTagDraft("");
 	};
@@ -346,6 +395,29 @@ export const ProjectAdmin = () => {
 		updateForm((current) => ({
 			media: current.media.filter((_, itemIndex) => itemIndex !== index),
 		}));
+	};
+
+	const moveMedia = (fromIndex, toIndex) => {
+		if (
+			fromIndex === toIndex ||
+			fromIndex < 0 ||
+			toIndex < 0 ||
+			fromIndex >= form.media.length ||
+			toIndex >= form.media.length
+		) {
+			return;
+		}
+
+		updateForm((current) => {
+			const nextMedia = [...current.media];
+			const [movedMedia] = nextMedia.splice(fromIndex, 1);
+			nextMedia.splice(toIndex, 0, movedMedia);
+
+			return {
+				media: nextMedia,
+			};
+		});
+		setDraggedMediaIndex(toIndex);
 	};
 
 	const uploadLocalMediaForSave = async (draftProject) => {
@@ -734,9 +806,47 @@ export const ProjectAdmin = () => {
 								<div className="project-admin-page__media-list">
 									{form.media.map((media, index) => (
 										<div
-											className="project-admin-page__media-item"
+											className={`project-admin-page__media-item${
+												draggedMediaIndex === index
+													? " is-dragging"
+													: ""
+											}`}
 											key={`${media.src}-${index}`}
+											onDragEnter={() => {
+												if (
+													draggedMediaIndex !== null
+												) {
+													moveMedia(
+														draggedMediaIndex,
+														index,
+													);
+												}
+											}}
+											onDragOver={(event) => {
+												event.preventDefault();
+												event.dataTransfer.dropEffect =
+													"move";
+											}}
 										>
+											<span
+												className="project-admin-page__media-drag-handle"
+												aria-label="Drag to reorder media"
+												draggable
+												onDragStart={(event) => {
+													setDraggedMediaIndex(index);
+													event.dataTransfer.effectAllowed =
+														"move";
+													event.dataTransfer.setData(
+														"text/plain",
+														String(index),
+													);
+												}}
+												onDragEnd={() =>
+													setDraggedMediaIndex(null)
+												}
+											>
+												<GripVertical />
+											</span>
 											<img
 												src={media.src}
 												alt={media.alt || ""}

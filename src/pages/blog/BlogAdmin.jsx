@@ -1879,6 +1879,7 @@ export const BlogAdmin = () => {
 						type="button"
 						variant="outline-accent"
 						centered
+						className="blog-admin-page__new-post-button"
 						onClick={handleNewPost}
 					>
 						<Plus />
