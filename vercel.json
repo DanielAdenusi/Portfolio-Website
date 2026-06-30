@@ -1,7 +1,35 @@
 {
 	"rewrites": [
 		{
-			"source": "/(.*)",
+			"source": "/api/(.*)",
+			"destination": "/api/$1"
+		},
+		{
+			"source": "/login",
+			"destination": "/index.html"
+		},
+		{
+			"source": "/home/admin",
+			"destination": "/index.html"
+		},
+		{
+			"source": "/blog",
+			"destination": "/index.html"
+		},
+		{
+			"source": "/blog/(.*)",
+			"destination": "/index.html"
+		},
+		{
+			"source": "/projects",
+			"destination": "/index.html"
+		},
+		{
+			"source": "/projects/(.*)",
+			"destination": "/index.html"
+		},
+		{
+			"source": "/project",
 			"destination": "/index.html"
 		}
 	]
