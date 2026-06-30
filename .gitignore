@@ -27,3 +27,4 @@ dist-ssr
 .env.*
 *.env*
 !.env.example
+.github/pull_request_template.md
