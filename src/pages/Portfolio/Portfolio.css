@@ -1,16 +1,3 @@
-.portfolio-snap-scroll {
-	scroll-snap-type: y mandatory;
-	scroll-behavior: smooth;
-}
-
-.portfolio-snap-scroll.portfolio-scroll-active {
-	scroll-snap-type: none;
-}
-
-.portfolio > .section {
-	scroll-snap-align: start;
-}
-
 .portfolio-scroll-top {
 	position: fixed;
 	inset-inline-end: var(--spacing-m);
