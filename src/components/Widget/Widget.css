@@ -1,0 +1,103 @@
+.widget {
+	background-color: var(--background-tertiary);
+	padding: var(--spacing-l);
+	border: var(--borderStyle-primary);
+	box-shadow: 6px 6px 0px 0px var(--content-accent-inverse);
+	transition: all var(--animation-emphasised);
+}
+
+.widget--interactive {
+	cursor: pointer;
+}
+
+.widget--interactive:hover {
+	transform: translate(2px, 2px);
+	box-shadow: 4px 4px 0px 0px var(--content-primary);
+}
+
+.widget__header {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-xs);
+	color: var(--content-accent);
+	margin-block-end: 1.25rem;
+	padding-block-end: var(--spacing-xs);
+	border-block-end: var(--borderStyle-primary);
+	margin-block-start: 0;
+
+	.lucide {
+		inline-size: 1rem;
+		block-size: 1rem;
+	}
+}
+
+.widget__header--alt {
+	border-color: var(--content-primary);
+	margin-block-end: var(--spacing-m);
+	padding-block-end: var(--spacing-xs);
+}
+
+.widget__content {
+	display: flex;
+	gap: var(--spacing-m);
+}
+
+.widget__info {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: var(--spacing-2xs) 0;
+}
+
+.widget__title {
+	display: -webkit-box;
+	margin: 0;
+	margin-block-end: var(--spacing-2xs);
+	overflow: hidden;
+	font-size: var(--fontSize-m);
+	line-clamp: 2;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+
+.widget__subtitle {
+	font-size: var(--fontSize-caption-xs);
+	font-style: italic;
+}
+
+.widget__link {
+	display: block;
+	cursor: pointer;
+}
+
+.widget__link:is(:hover, :focus-visible, :focus-within) .widget-title-hover {
+	text-decoration: underline;
+	text-underline-offset: 4px;
+	text-decoration-thickness: 2px;
+}
+
+.widget__link:is(:hover, :focus-visible, :focus-within) .widget__image-icon {
+	transform: scale(1.1);
+}
+
+.widget__image {
+	aspect-ratio: 4/3;
+	background-color: var(--color-border-light);
+	margin-block-end: var(--spacing-s);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: var(--borderStyle-primary);
+	overflow: hidden;
+}
+
+.widget__image-icon {
+	color: rgba(53, 65, 130, 0.4);
+	transition: transform 0.5s;
+}
+
+.widget__image-photo {
+	inline-size: 100%;
+	block-size: 100%;
+	object-fit: cover;
+}

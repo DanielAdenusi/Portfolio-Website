@@ -1,0 +1,17 @@
+[
+  {
+    "id": "test",
+    "title": "Test",
+    "excerpt": "Testing something rq",
+    "date": "2026-06-26",
+    "readTime": "1 min read",
+    "tags": [],
+    "images": [],
+    "body": [
+      "Just wanted to see what it would be like"
+    ],
+    "published": true,
+    "createdAt": "2026-06-26T01:47:32.240Z",
+    "updatedAt": "2026-06-26T01:47:32.240Z"
+  }
+]

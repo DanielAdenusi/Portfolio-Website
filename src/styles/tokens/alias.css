@@ -1,0 +1,194 @@
+:root {
+	/* Line height */
+	--lineHeight-tightest: 0.75;
+	--lineHeight-compact: 0.8;
+	--lineHeight-tight: 0.875;
+	--lineHeight-normal: 1;
+	--lineHeight-snug: 1.02;
+	--lineHeight-slight: 1.05;
+	--lineHeight-loose: 1.125;
+	--lineHeight-relaxed: 1.15;
+	--lineHeight-copy-tight: 1.2;
+	--lineHeight-loosest: 1.25;
+	--lineHeight-copy: 1.3;
+	--lineHeight-copy-relaxed: 1.35;
+	--lineHeight-reading-tight: 1.4;
+	--lineHeight-reading: 1.45;
+	--lineHeight-body: 1.5;
+	--lineHeight-body-relaxed: 1.6;
+	--lineHeight-body-loose: 1.625;
+	--lineHeight-prose: 1.65;
+	--lineHeight-prose-loose: 1.7;
+	--lineHeight-prose-loosest: 1.75;
+	--lineHeight-article: 1.85;
+	--lineHeight-4: 1rem;
+	--lineHeight-5: 1.25rem;
+
+	/* Letter spacing */
+	--letterSpacing-tightest: -0.1em;
+	--letterSpacing-tight: -0.05em;
+	--letterSpacing-normal: 0;
+	--letterSpacing-loose: 0.05em;
+	--letterSpacing-wide: 0.06em;
+	--letterSpacing-wider: 0.08em;
+	--letterSpacing-loosest: 0.1em;
+
+	/* Font Size */
+	--fontSize-10xl: var(--size-10xl);
+	--fontSize-9xl: var(--size-9xl);
+	--fontSize-8xl: var(--size-8xl);
+	--fontSize-7xl: var(--size-7xl);
+	--fontSize-6xl: var(--size-6xl);
+	--fontSize-5xl: var(--size-5xl);
+	--fontSize-4xl: var(--size-4xl);
+	--fontSize-3xl: var(--size-3xl);
+	--fontSize-hero-s: 1.875rem;
+	--fontSize-2xl: var(--size-2xl);
+	--fontSize-xl: var(--size-xl);
+	--fontSize-title-l: 2.25rem;
+	--fontSize-l: var(--size-l);
+	--fontSize-lead: 1.125rem;
+	--fontSize-article: 1.15rem;
+	--fontSize-callout: 1.14rem;
+	--fontSize-panel-title: 1.1rem;
+	--fontSize-panel: 1.08rem;
+	--fontSize-copy-l: 1.05rem;
+	--fontSize-body-l: 1.02rem;
+	--fontSize-body-s: 0.95rem;
+	--fontSize-dialog: 0.92rem;
+	--fontSize-m: var(--size-m);
+	--fontSize-label-l: 0.85rem;
+	--fontSize-label: 0.82rem;
+	--fontSize-body-xs: 0.8rem;
+	--fontSize-caption-l: 0.78rem;
+	--fontSize-caption-m: 0.76rem;
+	--fontSize-s: var(--size-s);
+	--fontSize-caption: 0.72rem;
+	--fontSize-caption-s: 0.7rem;
+	--fontSize-caption-xs: 0.6875rem;
+	--fontSize-micro: 0.68rem;
+	--fontSize-micro-s: 0.65rem;
+	--fontSize-xs: var(--size-xs);
+	--fontSize-2xs: var(--size-2xs);
+	--fontSize-display-hero: 85px;
+	--fontSize-fluid-lead: clamp(1.05rem, 1rem + 0.25vw, 1.25rem);
+	--fontSize-fluid-title: clamp(1.65rem, 1.4rem + 1vw, 2.2rem);
+	--fontSize-fluid-title-compact: clamp(1.65rem, 1.3rem + 1vw, 2.3rem);
+	--fontSize-fluid-title-mobile: clamp(1.65rem, 1.25rem + 2vw, 2rem);
+	--fontSize-fluid-hero: clamp(3rem, 3.25rem + 3vw, 3.5rem);
+	--fontSize-fluid-heading: clamp(2rem, 1.45rem + 2vw, 3.5rem);
+	--fontSize-fluid-display: clamp(2.2rem, 1.5rem + 2.4vw, 4rem);
+	--fontSize-display-l: 3.75rem;
+
+	/* Paragraph Sizes */
+	--paragraphWidth-2xs: 20ch;
+	--paragraphWidth-xs: 28ch;
+	--paragraphWidth-s: 36ch;
+	--paragraphWidth-m: 44ch;
+	--paragraphWidth-l: 52ch;
+	--paragraphWidth-xl: 60ch;
+	--paragraphWidth-2xl: 68ch;
+
+	/* Icon Size */
+	--iconSize-2xs: var(--unit-14);
+	--iconSize-xs: var(--unit-16);
+	--iconSize-s: var(--unit-20);
+	--iconSize-m: var(--unit-24);
+	--iconSize-l: var(--unit-32);
+	--iconSize-xl: var(--unit-40);
+
+	/* Avatar Size */
+	--avatarSize-xs: var(--unit-24);
+	--avatarSize-s: var(--unit-32);
+	--avatarSize-m: var(--unit-40);
+	--avatarSize-l: var(--unit-48);
+	--avatarSize-xl: var(--unit-64);
+
+	/* Image Sizes */
+	--imageSize-2xs: var(--unit-48);
+	--imageSize-xs: var(--unit-64);
+	--imageSize-s: var(--unit-96);
+	--imageSize-m: var(--unit-128);
+	--imageSize-l: var(--unit-160);
+	--imageSize-xl: var(--unit-192);
+	--imageSize-2xl: var(--unit-256);
+	--imageSize-fill: 100%;
+
+	/* Component Width */
+	--componentWidth-2xs: var(--unit-40);
+	--componentWidth-xs: var(--unit-48);
+	--componentWidth-s: var(--unit-64);
+	--componentWidth-m: var(--unit-80);
+	--componentWidth-l: var(--unit-96);
+	--componentWidth-xl: var(--unit-128);
+	--componentWidth-2xl: var(--unit-192);
+	--componentWidth-3xl: var(--unit-256);
+	--componentWidth-fill: 100%;
+
+	/* Component Height */
+	--componentHeight-progress: var(--unit-12);
+	--componentHeight-4xs: var(--unit-16);
+	--componentHeight-3xs: var(--unit-20);
+	--componentHeight-2xs: var(--unit-24);
+	--componentHeight-xs: var(--unit-32);
+	--componentHeight-s: var(--unit-40);
+	--componentHeight-m: var(--unit-48);
+	--componentHeight-l: var(--unit-56);
+	--componentHeight-xl: var(--unit-64);
+	--componentHeight-2xl: var(--unit-72);
+	--componentHeight-3xl: var(--unit-80);
+	--componentHeight-4xl: var(--unit-96);
+	--componentHeight-fill: 100%;
+
+	/* Container Width */
+	--containerWidth-4xs: var(--unit-192);
+	--containerWidth-3xs: var(--unit-256);
+	--containerWidth-2xs: var(--unit-320);
+	--containerWidth-xs: var(--unit-384);
+	--containerWidth-s: var(--unit-480);
+	--containerWidth-m: var(--unit-576);
+	--containerWidth-l: var(--unit-640);
+	--containerWidth-xl: var(--unit-768);
+	--containerWidth-2xl: var(--unit-896);
+	--containerWidth-3xl: var(--unit-1024);
+	--containerWidth-4xl: var(--unit-1152);
+	--containerWidth-fill: 100%;
+
+	/* Container Height */
+	--containerHeight-4xs: var(--unit-128);
+	--containerHeight-3xs: var(--unit-192);
+	--containerHeight-2xs: var(--unit-288);
+	--containerHeight-xs: var(--unit-384);
+	--containerHeight-s: var(--unit-480);
+	--containerHeight-m: var(--unit-576);
+	--containerHeight-l: var(--unit-640);
+	--containerHeight-xl: var(--unit-768);
+	--containerHeight-2xl: var(--unit-896);
+	--containerHeight-3xl: var(--unit-1024);
+	--containerHeight-4xl: var(--unit-1152);
+	--containerHeight-fill: 100%;
+
+	/* Overlay Width */
+	--overlayWidth-min: 15dvw;
+	--overlayWidth-2xs: 20dvw;
+	--overlayWidth-xs: 30dvw;
+	--overlayWidth-s: 40dvw;
+	--overlayWidth-m: 50dvw;
+	--overlayWidth-l: 60dvw;
+	--overlayWidth-xl: 70dvw;
+	--overlayWidth-2xl: 80dvw;
+	--overlayWidth-max: 90dvw;
+	--overlayWidth-fill: 100dvw;
+
+	/* Overlay Height */
+	--overlayHeight-min: 15dvh;
+	--overlayHeight-2xs: 20dvh;
+	--overlayHeight-xs: 30dvh;
+	--overlayHeight-s: 40dvh;
+	--overlayHeight-m: 50dvh;
+	--overlayHeight-l: 60dvh;
+	--overlayHeight-xl: 70dvh;
+	--overlayHeight-2xl: 80dvh;
+	--overlayHeight-max: 90dvh;
+	--overlayHeight-fill: 100dvh;
+}

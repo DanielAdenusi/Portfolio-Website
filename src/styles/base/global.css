@@ -1,0 +1,50 @@
+html {
+	color-scheme: light dark;
+	scroll-behavior: smooth;
+}
+
+html.dark-mode {
+	color-scheme: dark;
+}
+
+html.light-mode {
+	color-scheme: light;
+}
+
+body {
+	box-sizing: border-box;
+	font-size: var(--fontSize-m);
+	font-weight: var(--fontWeight-regular);
+	font-family: var(--fontFamily-sans);
+	color: var(--content-primary);
+	scrollbar-width: thin;
+}
+
+h1,
+h2,
+h3 {
+	font-weight: var(--fontWeight-bold);
+	font-family: var(--fontFamily-display);
+	font-size: var(--fontSize-2xl);
+}
+
+[hidden] {
+	display: none !important;
+}
+
+audio,
+canvas,
+embed,
+iframe,
+img,
+object,
+svg,
+video {
+	vertical-align: middle;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
