@@ -74,6 +74,11 @@ const cleanAmazonTitle = (title = "") =>
 		.replace(/\s*\|\s*Amazon\.[^|]+.*$/i, "")
 		.trim();
 
+const isGenericAmazonTitle = (title = "") =>
+	/^amazon\.[a-z.]+$/i.test(title.trim()) ||
+	/^robot check$/i.test(title.trim()) ||
+	/^sorry! something went wrong/i.test(title.trim());
+
 const cleanAuthor = (author = "") =>
 	decodeHtml(author)
 		.replace(/^by\s+/i, "")
@@ -94,6 +99,68 @@ const getAuthorFromTitle = (title = "") => {
 	}
 
 	return "";
+};
+
+const getAmazonProductId = (value) => {
+	try {
+		const { pathname } = new URL(value);
+		const productIdMatch = pathname.match(
+			/(?:\/dp\/|\/gp\/product\/|\/product\/)([A-Z0-9]{10,13})/i,
+		);
+
+		return productIdMatch?.[1] || "";
+	} catch {
+		return "";
+	}
+};
+
+const getOpenLibraryAuthor = async (authorKey) => {
+	if (!authorKey) {
+		return "";
+	}
+
+	try {
+		const response = await fetch(`https://openlibrary.org${authorKey}.json`);
+
+		if (!response.ok) {
+			return "";
+		}
+
+		const author = await response.json();
+		return author.name || "";
+	} catch {
+		return "";
+	}
+};
+
+const getOpenLibraryMetadata = async (sourceUrl) => {
+	const productId = getAmazonProductId(sourceUrl);
+
+	if (!/^(?:\d{9}[\dX]|\d{13})$/i.test(productId)) {
+		return null;
+	}
+
+	try {
+		const response = await fetch(
+			`https://openlibrary.org/isbn/${productId}.json`,
+		);
+
+		if (!response.ok) {
+			return null;
+		}
+
+		const book = await response.json();
+		const author = await getOpenLibraryAuthor(book.authors?.[0]?.key);
+
+		return {
+			author,
+			coverUrl: `https://covers.openlibrary.org/b/isbn/${productId}-L.jpg?default=false`,
+			link: sourceUrl,
+			title: book.title || "",
+		};
+	} catch {
+		return null;
+	}
 };
 
 const extractBookMetadata = (html, sourceUrl) => {
@@ -117,7 +184,9 @@ const extractBookMetadata = (html, sourceUrl) => {
 			getMetaContent(html, "twitter:image") ||
 			"",
 		link: sourceUrl,
-		title: cleanAmazonTitle(rawTitle),
+		title: isGenericAmazonTitle(cleanAmazonTitle(rawTitle))
+			? ""
+			: cleanAmazonTitle(rawTitle),
 	};
 };
 
@@ -150,6 +219,12 @@ export default async function handler(request, response) {
 	}
 
 	try {
+		const openLibraryMetadata = await getOpenLibraryMetadata(sourceUrl);
+
+		if (openLibraryMetadata?.title) {
+			return sendJson(response, 200, { book: openLibraryMetadata });
+		}
+
 		const metadataResponse = await fetch(sourceUrl, {
 			headers: {
 				Accept: "text/html,application/xhtml+xml",
