@@ -36,3 +36,15 @@ export const saveSiteSettings = async (settings) =>
 	}).then(({ settings: savedSettings }) => ({
 		settings: normalizeSiteSettings(savedSettings),
 	}));
+
+export const fetchBookMetadata = async (url) =>
+	requestJson(`/api/book-metadata?url=${encodeURIComponent(url)}`).then(
+		({ book }) => ({
+			book: {
+				author: book?.author?.trim() || "",
+				coverUrl: book?.coverUrl?.trim() || "",
+				link: book?.link?.trim() || url.trim(),
+				title: book?.title?.trim() || "",
+			},
+		}),
+	);

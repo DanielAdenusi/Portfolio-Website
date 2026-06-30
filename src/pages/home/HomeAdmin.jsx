@@ -1,8 +1,12 @@
-import { useEffect, useState } from "react";
-import { ArrowLeft, BookOpen, Save } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
+import { ArrowLeft, BookOpen, RefreshCw, Save } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../../components/ui/Button/Button";
-import { getSiteSettings, saveSiteSettings } from "../../data/siteSettingsApi";
+import {
+	fetchBookMetadata,
+	getSiteSettings,
+	saveSiteSettings,
+} from "../../data/siteSettingsApi";
 import "./HomeAdmin.css";
 
 const emptyCurrentBook = {
@@ -12,10 +16,23 @@ const emptyCurrentBook = {
 	title: "",
 };
 
+const isAmazonUrl = (url) => {
+	try {
+		const hostname = new URL(url).hostname
+			.toLowerCase()
+			.replace(/^www\./, "");
+		return hostname.includes("amazon.") || hostname === "amzn.to";
+	} catch {
+		return false;
+	}
+};
+
 export const HomeAdmin = () => {
 	const [currentBook, setCurrentBook] = useState(emptyCurrentBook);
 	const [isLoading, setIsLoading] = useState(true);
 	const [isSaving, setIsSaving] = useState(false);
+	const [isFetchingBook, setIsFetchingBook] = useState(false);
+	const [lastFetchedBookUrl, setLastFetchedBookUrl] = useState("");
 	const [status, setStatus] = useState("");
 	const [error, setError] = useState("");
 
@@ -57,6 +74,65 @@ export const HomeAdmin = () => {
 			...updates,
 		}));
 	};
+
+	const hydrateBookFromUrl = useCallback(async (url) => {
+		const bookUrl = url.trim();
+
+		if (!bookUrl || !isAmazonUrl(bookUrl)) {
+			return;
+		}
+
+		setIsFetchingBook(true);
+		setStatus("Fetching book details from Amazon...");
+		setError("");
+
+		try {
+			const { book } = await fetchBookMetadata(bookUrl);
+			const resolvedBookUrl = book.link || bookUrl;
+			setCurrentBook((current) => ({
+				...current,
+				...book,
+				link: resolvedBookUrl,
+			}));
+			setLastFetchedBookUrl(resolvedBookUrl);
+			setStatus("Book details loaded from Amazon.");
+		} catch (requestError) {
+			setError(
+				requestError.message || "Unable to fetch book details.",
+			);
+			setStatus("");
+		} finally {
+			setIsFetchingBook(false);
+		}
+	}, []);
+
+	useEffect(() => {
+		if (isLoading || isFetchingBook) {
+			return undefined;
+		}
+
+		const bookUrl = currentBook.link.trim();
+
+		if (
+			!bookUrl ||
+			!isAmazonUrl(bookUrl) ||
+			bookUrl === lastFetchedBookUrl
+		) {
+			return undefined;
+		}
+
+		const fetchTimeout = window.setTimeout(() => {
+			hydrateBookFromUrl(bookUrl);
+		}, 750);
+
+		return () => window.clearTimeout(fetchTimeout);
+	}, [
+		currentBook.link,
+		hydrateBookFromUrl,
+		isFetchingBook,
+		isLoading,
+		lastFetchedBookUrl,
+	]);
 
 	const handleSave = async () => {
 		setIsSaving(true);
@@ -184,7 +260,7 @@ export const HomeAdmin = () => {
 									<span>Book link</span>
 									<input
 										value={currentBook.link}
-										placeholder="https://..."
+										placeholder="https://www.amazon.co.uk/..."
 										onChange={(event) =>
 											updateCurrentBook({
 												link: event.target.value,
@@ -192,6 +268,25 @@ export const HomeAdmin = () => {
 										}
 									/>
 								</label>
+								<div className="home-admin-page__book-fetch">
+									<Button
+										type="button"
+										variant="outline"
+										onClick={() =>
+											hydrateBookFromUrl(
+												currentBook.link,
+											)
+										}
+										isLoading={isFetchingBook}
+										disabled={
+											isFetchingBook ||
+											!isAmazonUrl(currentBook.link)
+										}
+									>
+										<RefreshCw />
+										Fetch details
+									</Button>
+								</div>
 							</div>
 						</div>
 					)}

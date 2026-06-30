@@ -178,6 +178,11 @@
 	box-shadow: var(--ring-focus);
 }
 
+.home-admin-page__book-fetch {
+	display: flex;
+	align-items: end;
+}
+
 .home-admin-page__skeleton {
 	position: relative;
 	block-size: 12rem;
