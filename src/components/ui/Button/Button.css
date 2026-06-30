@@ -1,0 +1,203 @@
+.button {
+	--bg: var(--background-primary);
+	--content: var(--content-primary);
+	--border: var(--border-primary);
+	--bg-hover: var(--background-tertiary);
+	--content-hover: var(--content-tertiary);
+	--boxShadow: var(--shadow-s);
+
+	display: inline-flex;
+	align-items: center;
+	gap: var(--spacing-xs);
+	font-family: var(--fontFamily-sans);
+	font-weight: var(--fontWeight-bold);
+	font-size: var(--fontSize-s);
+	text-transform: uppercase;
+	letter-spacing: var(--letterSpacing-loosest);
+	cursor: pointer;
+	transition: all var(--animation-emphasised);
+	border-radius: var(--borderRadius-xs);
+	background: var(--bg);
+	color: var(--content);
+	border: var(--borderWidth-xs) solid var(--border);
+	padding: var(--spacing-s) var(--spacing-m);
+}
+
+.button:where(:hover, :focus-visible) {
+	color: var(--content-hover);
+	background: var(--bg-hover);
+	box-shadow: var(--boxShadow);
+}
+
+.button--centered {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.button--text {
+	--content: var(--content-accent);
+	--bg: transparent;
+	--border: transparent;
+	--content-hover: var(--content-tertiary);
+	--bg-hover: transparent;
+	--boxShadow: none;
+	padding-inline: 0;
+}
+
+.button--text:where(:hover, :focus-visible) {
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 5px;
+}
+
+.button--text:where(:hover, :focus-visible) svg {
+	transform: translateX(4px);
+}
+
+.button--loading {
+	pointer-events: none;
+	opacity: 0.6;
+
+	.loader .loader__spinner {
+		inline-size: 1rem;
+		block-size: 1rem;
+	}
+}
+
+.button--icon {
+	--bg: transparent;
+	--border: transparent;
+	--content: var(--content-accent);
+
+	--content-hover: var(--content-tertiary);
+	padding: var(--spacing-2xs);
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	transition:
+		color var(--animation-hover),
+		background var(--animation-hover),
+		transform var(--animation-emphasised);
+}
+
+.button--icon > svg {
+	block-size: 1rem;
+	inline-size: 1rem;
+	transition: transform var(--animation-emphasised);
+}
+
+.button--icon:where(:hover, :focus-visible) {
+	transform: translateY(-1px);
+}
+
+.button:not(.button--icon) > svg {
+	block-size: 1rem;
+	inline-size: 1rem;
+}
+
+.button--accent {
+	--bg: var(--background-accent);
+	--border: var(--border-accent);
+	--content: var(--foundation-white);
+
+	--bg-hover: color-mix(
+		in srgb,
+		var(--background-accent),
+		var(--background-primary) 50%
+	);
+	--content-hover: var(--content-primary);
+}
+
+.button--outline {
+	--bg: transparent !important;
+	--content: var(--content-primary);
+	--border: var(--border-primary);
+
+	--bg-hover: var(--background-tertiary);
+	--content-hover: var(--content-tertiary);
+}
+
+.button--outline-accent {
+	--border: var(--border-accent);
+	--content: var(--content-accent);
+
+	--bg-hover: var(--background-accent);
+	--content-hover: var(--content-on-accent);
+}
+
+.button--outline-inverse {
+	--bg: transparent;
+	--border: var(--border-primary);
+	--content: var(--content-on-primary);
+	--bg-hover: var(--background-tertiary);
+	--content-hover: var(--content-primary);
+}
+
+.button--positive {
+	--bg: var(--background-positive);
+	--border: var(--border-positive);
+	--content: var(--content-on-positive);
+
+	--bg-hover: color-mix(
+		in srgb,
+		var(--background-positive),
+		var(--background-primary) 50%
+	);
+	--content-hover: var(--content-primary);
+
+	&.button--outline {
+		--bg: transparent;
+		--border: var(--border-positive);
+		--content: var(--content-positive);
+
+		--bg-hover: var(--background-positive);
+		--content-hover: var(--content-on-positive);
+	}
+}
+
+.button--negative {
+	--bg: var(--background-negative);
+	--border: var(--border-negative);
+	--content: var(--content-on-negative);
+
+	--bg-hover: color-mix(
+		in srgb,
+		var(--background-negative),
+		var(--background-primary) 50%
+	);
+	--content-hover: var(--content-primary);
+
+	&.button--outline {
+		--bg: transparent;
+		--border: var(--border-negative);
+		--content: var(--content-negative);
+
+		--bg-hover: var(--background-negative);
+		--content-hover: var(--content-on-negative);
+	}
+}
+
+.button--warning {
+	--bg: var(--background-warning);
+	--border: var(--border-warning);
+	--content: var(--content-on-warning);
+
+	--bg-hover: color-mix(
+		in srgb,
+		var(--background-warning),
+		var(--background-primary) 50%
+	);
+	--content-hover: var(--content-primary);
+
+	&.button--outline {
+		--bg: transparent;
+		--border: var(--border-warning);
+		--content: var(--content-warning);
+
+		--bg-hover: var(--background-warning);
+		--content-hover: var(--content-on-warning);
+	}
+}

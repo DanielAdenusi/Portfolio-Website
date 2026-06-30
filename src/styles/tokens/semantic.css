@@ -1,0 +1,203 @@
+:root {
+	/* Content */
+	--content-primary: light-dark(var(--neutral-900), var(--foundation-white));
+	--content-on-primary: light-dark(
+		var(--foundation-white),
+		var(--neutral-900)
+	);
+	--content-on-primary-inverse: light-dark(
+		var(--neutral-800),
+		var(--neutral-900)
+	);
+	--content-secondary: light-dark(var(--neutral-800), var(--neutral-200));
+	--content-on-secondary: light-dark(
+		var(--foundation-white),
+		var(--neutral-800)
+	);
+	--content-on-secondary-inverse: light-dark(
+		var(--neutral-700),
+		var(--neutral-600)
+	);
+	--content-tertiary: light-dark(var(--neutral-700), var(--neutral-300));
+	--content-on-tertiary: light-dark(
+		var(--foundation-white),
+		var(--neutral-700)
+	);
+	--content-on-tertiary-inverse: light-dark(
+		var(--neutral-600),
+		var(--neutral-500)
+	);
+	--content-accent: light-dark(var(--accent-700), var(--accent-300));
+	--content-accent-inverse: light-dark(var(--accent-600), var(--accent-400));
+	--content-on-accent: var(--foundation-white);
+
+	--content-positive: light-dark(var(--green-700), var(--green-300));
+	--content-positive-inverse: light-dark(var(--green-600), var(--green-400));
+	--content-on-positive: var(--foundation-white);
+
+	--content-negative: light-dark(var(--red-700), var(--red-300));
+	--content-negative-inverse: light-dark(var(--red-600), var(--red-400));
+	--content-on-negative: var(--foundation-white);
+
+	--content-warning: light-dark(var(--orange-700), var(--orange-300));
+	--content-warning-inverse: light-dark(var(--orange-600), var(--orange-400));
+	--content-on-warning: var(--foundation-white);
+
+	/* Background */
+	--background-primary: light-dark(
+		var(--foundation-white),
+		var(--neutral-950)
+	);
+	--background-primary-inverse: light-dark(
+		var(--neutral-950),
+		var(--foundation-white)
+	);
+	--background-secondary: light-dark(var(--neutral-50), var(--neutral-900));
+	--background-tertiary: light-dark(var(--neutral-100), var(--neutral-850));
+	--background-accent: light-dark(var(--accent-600), var(--accent-400));
+	--background-accent-light: light-dark(var(--accent-100), var(--accent-900));
+	--background-accent-dark: light-dark(var(--accent-900), var(--accent-100));
+
+	--background-positive: light-dark(var(--green-600), var(--green-400));
+	--background-negative: light-dark(var(--red-600), var(--red-400));
+	--background-warning: light-dark(var(--orange-600), var(--orange-400));
+
+	/* Border */
+	--border-primary: light-dark(var(--neutral-200), var(--neutral-800));
+	--border-secondary: light-dark(var(--neutral-300), var(--neutral-700));
+	--border-tertiary: light-dark(var(--neutral-400), var(--neutral-600));
+	--border-accent: light-dark(var(--accent-600), var(--accent-400));
+	--border-positive: light-dark(var(--green-600), var(--green-400));
+	--border-negative: light-dark(var(--red-600), var(--red-400));
+	--border-warning: light-dark(var(--orange-600), var(--orange-400));
+
+	/* Border Styles */
+	--borderStyle-primary: var(--borderWidth-xs) solid var(--border-primary);
+	--borderStyle-secondary: var(--borderWidth-xs) solid var(--border-secondary);
+	--borderStyle-tertiary: var(--borderWidth-xs) solid var(--border-tertiary);
+	--borderStyle-accent: var(--borderWidth-xs) solid var(--border-accent);
+	--borderStyle-positive: var(--borderWidth-xs) solid var(--border-positive);
+	--borderStyle-negative: var(--borderWidth-xs) solid var(--border-negative);
+	--borderStyle-warning: var(--borderWidth-xs) solid var(--border-warning);
+
+	/* Overlay */
+	--overlay-50: light-dark(
+		var(--foundation-black-50),
+		var(--foundation-white-50)
+	);
+	--overlay-50-inverse: light-dark(
+		var(--foundation-white-50),
+		var(--foundation-black-50)
+	);
+
+	/* Elevation Shadows */
+	--elevation-l5: 0px 5px 10px -2px
+		light-dark(
+			rgba(var(--neutral-1000-rgb), 0.26),
+			rgba(var(--neutral-600-rgb), 0.45)
+		);
+	--elevation-l4: 0px 4px 8px -1px
+		light-dark(
+			rgba(var(--neutral-1000-rgb), 0.22),
+			rgba(var(--neutral-600-rgb), 0.35)
+		);
+	--elevation-l3: 0px 3px 6px -1px
+		light-dark(
+			rgba(var(--neutral-1000-rgb), 0.18),
+			rgba(var(--neutral-600-rgb), 0.25)
+		);
+	--elevation-l2: 0px 2px 4px 0px
+		light-dark(
+			rgba(var(--neutral-1000-rgb), 0.14),
+			rgba(var(--neutral-600-rgb), 0.2)
+		);
+	--elevation-l1: 0px 1px 2px 0px
+		light-dark(
+			rgba(var(--neutral-1000-rgb), 0.05),
+			rgba(var(--neutral-600-rgb), 0.15)
+		);
+
+	/* Animation & Timing */
+	--animation-interactive: var(--animation-duration-short)
+		var(--animation-easing-standard);
+	--animation-hover: var(--animation-duration-short)
+		var(--animation-easing-standard);
+	--animation-enter: var(--animation-duration-normal)
+		var(--animation-easing-enter);
+	--animation-exit: var(--animation-duration-normal)
+		var(--animation-easing-exit);
+	--animation-emphasised: var(--animation-duration-emphasised)
+		var(--animation-easing-emphasised);
+	--animation-bounce: var(--animation-duration-normal)
+		var(--animation-easing-overshoot);
+
+	/* Layout Spacing */
+	--spacing-page: var(--spacing-6xl);
+	--spacing-section: var(--spacing-5xl);
+	--spacing-container: var(--spacing-4xl);
+	--spacing-content: var(--spacing-3xl);
+	--spacing-block: var(--spacing-m);
+	--spacing-inline: var(--spacing-m);
+
+	/* Component & Form Spacing */
+	--spacing-component-block: var(--spacing-s);
+	--spacing-component-inline: var(--spacing-m);
+
+	--spacing-component-gap: var(--spacing-s);
+	--spacing-form-group: var(--spacing-l);
+	--spacing-form-element: var(--spacing-m);
+
+	/* Stack Spacing */
+	--spacing-stack-xs: var(--spacing-xs);
+	--spacing-stack-s: var(--spacing-s);
+	--spacing-stack-m: var(--spacing-m);
+	--spacing-stack-l: var(--spacing-l);
+	--spacing-stack-xl: var(--spacing-xl);
+
+	/* Z-Index */
+	--zIndex-base: 0;
+	--zIndex-raised: 1;
+	--zIndex-dropdown: 2;
+	--zIndex-sticky: 100;
+	--zIndex-fixed: 200;
+	--zIndex-sidebar: 300;
+	--zIndex-backdrop: 1000;
+	--zIndex-drawer: 1005;
+	--zIndex-modal: 1010;
+	--zIndex-aboveBackdrop: 1015;
+	--zIndex-popover: 1020;
+	--zIndex-menu: 1025;
+	--zIndex-tooltip: 1030;
+	--zIndex-toast: 1040;
+
+	/* Opacity */
+	--opacity-disabled: 0.5;
+	--opacity-overlay: 0.8;
+	--opacity-hover: 0.9;
+	--opacity-full: 1;
+	--opacity-none: 0;
+
+	/* Contextual Breakpoints & Fonts */
+	--breakpoint-desktop: var(--breakpoint-xl);
+	--breakpoint-laptop: var(--breakpoint-l);
+	--breakpoint-tablet: var(--breakpoint-m);
+	--breakpoint-mobile: var(--breakpoint-s);
+
+	--fontWeight-light: 300;
+	--fontWeight-regular: 400;
+	--fontWeight-medium: 500;
+	--fontWeight-semi-bold: 600;
+	--fontWeight-bold: 700;
+
+	--shadow-default: var(--shadow-m), var(--ring-subtle);
+	--shadow-hover: var(--shadow-s), var(--ring-subtle);
+	--shadow-active: var(--shadow-m), var(--ring-subtle);
+
+	--shadow-brand: var(--shadow-default), var(--ring-brand);
+	--shadow-positive: var(--shadow-default), var(--ring-positive);
+	--shadow-notice: var(--shadow-default), var(--ring-notice);
+	--shadow-negative: var(--shadow-default), var(--ring-negative);
+	--shadow-info: var(--shadow-default), var(--ring-info);
+	--shadow-subtle: var(--shadow-default), var(--ring-subtle);
+	--shadow-focus: var(--shadow-default), var(--ring-focus);
+}

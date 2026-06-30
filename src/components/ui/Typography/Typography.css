@@ -1,0 +1,77 @@
+/* Typography Utilities (Used by Typography Primitive) */
+.typography-display {
+	font-family: var(--fontFamily-display);
+}
+
+.typography.typography-sans {
+	font-family: var(--fontFamily-sans);
+}
+
+.typography.typography-serif {
+	font-family: var(--fontFamily-serif);
+}
+
+.typography-uppercase {
+	text-transform: uppercase;
+}
+
+.typography-wide {
+	letter-spacing: var(--letterSpacing-loosest);
+}
+
+.typography-bold {
+	font-weight: var(--fontWeight-bold);
+}
+
+.typography-xs {
+	font-size: var(--fontSize-s);
+	line-height: var(--lineHeight-4);
+}
+
+.typography-sm {
+	font-size: var(--fontSize-m);
+	line-height: var(--lineHeight-5);
+}
+
+.typography-body {
+	font-size: var(--fontSize-lead);
+	line-height: var(--lineHeight-body-loose);
+	text-align: justify;
+}
+
+.typography-muted {
+	color: var(--content-on-tertiary-inverse);
+}
+
+.typography-6xl {
+	font-size: var(--fontSize-5xl);
+	letter-spacing: var(--letterSpacing-tight);
+}
+
+@media (min-width: 640px) {
+	.typography-6xl {
+		font-size: var(--fontSize-8xl);
+	}
+}
+
+@media (min-width: 768px) {
+	.typography-6xl {
+		font-size: var(--fontSize-10xl);
+	}
+}
+
+.typography-4xl {
+	font-size: var(--fontSize-title-l);
+	letter-spacing: var(--letterSpacing-tight);
+}
+
+@media (min-width: 640px) {
+	.typography-4xl {
+		font-size: var(--fontSize-display-l);
+	}
+}
+
+.typography-2xl {
+	font-size: var(--fontSize-hero-s);
+	line-height: var(--lineHeight-loosest);
+}

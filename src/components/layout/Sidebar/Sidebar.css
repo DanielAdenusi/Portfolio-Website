@@ -1,0 +1,13 @@
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-2xl);
+	margin-block-start: var(--spacing-xl);
+}
+
+@media (min-width: 1024px) {
+	.sidebar {
+		grid-column: span 3;
+		margin-block-start: 0;
+	}
+}

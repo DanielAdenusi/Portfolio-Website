@@ -1,0 +1,181 @@
+.portfolio-snap-scroll {
+	scroll-snap-type: y mandatory;
+	scroll-behavior: smooth;
+}
+
+.portfolio-snap-scroll.portfolio-scroll-active {
+	scroll-snap-type: none;
+}
+
+.portfolio > .section {
+	scroll-snap-align: start;
+}
+
+.portfolio-scroll-top {
+	position: fixed;
+	inset-inline-end: var(--spacing-m);
+	inset-block-end: var(--spacing-m);
+	z-index: var(--zIndex-fixed);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	inline-size: 2.75rem;
+	block-size: 2.75rem;
+	padding: 0;
+	border: var(--borderStyle-primary);
+	border-radius: var(--borderRadius-pill);
+	background-color: var(--background-primary);
+	color: var(--content-primary);
+	box-shadow: var(--shadow-s);
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transform: translateY(var(--spacing-xs));
+	transition:
+		opacity var(--animation-emphasised),
+		transform var(--animation-emphasised),
+		background-color var(--animation-emphasised),
+		color var(--animation-emphasised),
+		box-shadow var(--animation-emphasised),
+		visibility 0s linear var(--animation-emphasised);
+}
+
+.portfolio-scroll-top--visible {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+	transform: translateY(0);
+	transition:
+		opacity var(--animation-emphasised),
+		transform var(--animation-emphasised),
+		background-color var(--animation-emphasised),
+		color var(--animation-emphasised),
+		box-shadow var(--animation-emphasised),
+		visibility 0s;
+}
+
+.portfolio-scroll-top:hover,
+.portfolio-scroll-top:focus-visible {
+	background-color: var(--background-tertiary);
+	color: var(--content-tertiary);
+	box-shadow: var(--shadow-m);
+}
+
+.portfolio-scroll-top__icon {
+	inline-size: 1rem;
+	block-size: 1rem;
+}
+
+.volume-header {
+	text-align: center;
+	margin-block-end: var(--spacing-4xl);
+}
+
+.volume-header__kicker {
+	margin: 0;
+	margin-block-end: var(--spacing-m);
+	color: var(--content-tertiary);
+}
+
+.volume-header__actions {
+	margin-block-start: var(--spacing-m);
+}
+
+.portfolio-project-empty {
+	padding: var(--spacing-m);
+	border: var(--borderStyle-primary);
+	background: var(--background-tertiary);
+	color: var(--content-tertiary);
+	font-size: var(--fontSize-m);
+	line-height: var(--lineHeight-body-relaxed);
+}
+
+.portfolio-project-empty--wide {
+	grid-column: 1 / -1;
+	max-inline-size: 42rem;
+	margin-inline: auto;
+	text-align: center;
+}
+
+.portfolio-sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-m);
+	min-inline-size: clamp(12rem, 10vw, 15rem);
+}
+
+.portfolio-widget-heading {
+	margin-block-end: var(--spacing-xs);
+}
+
+.portfolio-reading-card {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-m);
+	padding: var(--spacing-m);
+	border: var(--borderStyle-primary);
+	background: var(--background-tertiary);
+	color: var(--content-primary);
+	cursor: default;
+}
+
+.portfolio-reading-card.is-clickable {
+	cursor: pointer;
+	transition:
+		transform var(--animation-emphasised),
+		background-color var(--animation-emphasised);
+}
+
+.portfolio-reading-card.is-clickable:is(:hover, :focus-visible) {
+	background: var(--background-secondary);
+	transform: translateY(-1px);
+}
+
+.portfolio-reading-card__cover {
+	display: grid;
+	place-items: center;
+	flex: 0 0 auto;
+	inline-size: 4rem;
+	aspect-ratio: 2 / 3;
+	border: var(--borderStyle-primary);
+	background: var(--background-primary);
+	object-fit: cover;
+}
+
+.portfolio-reading-card__cover--empty {
+	color: var(--content-tertiary);
+}
+
+.portfolio-reading-card__cover svg {
+	inline-size: 1rem;
+	block-size: 1rem;
+}
+
+.portfolio-reading-card__title {
+	margin: 0;
+	margin-block-end: var(--spacing-2xs);
+	font-size: var(--fontSize-body-s);
+}
+
+.portfolio-reading-card__author {
+	font-size: var(--fontSize-s);
+	font-style: italic;
+}
+
+.portfolio-reading-actions {
+	display: flex;
+	margin-block-start: var(--spacing-s);
+}
+
+.portfolio-project-widget__title {
+	margin: 0;
+	margin-block-end: var(--spacing-xs);
+	font-size: var(--fontSize-lead);
+}
+
+.portfolio-project-widget__excerpt {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}

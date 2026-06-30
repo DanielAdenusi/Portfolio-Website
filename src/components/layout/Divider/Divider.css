@@ -1,0 +1,7 @@
+.divider {
+	border: 0;
+	border-block-start: var(--borderStyle-primary);
+	margin-block: var(--spacing-xl);
+	margin-inline: 0;
+	inline-size: 100%;
+}

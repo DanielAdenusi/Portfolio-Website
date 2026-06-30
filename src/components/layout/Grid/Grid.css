@@ -1,0 +1,28 @@
+.grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--spacing-xl);
+	padding-block-end: var(--spacing-4xl);
+	padding-inline-start: var(--spacing-m);
+	padding-inline-end: var(--spacing-m);
+}
+
+@media (min-width: 1024px) {
+	.grid {
+		grid-template-columns: repeat(12, 1fr);
+		gap: var(--spacing-3xl);
+	}
+}
+
+.grid--article {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--spacing-4xl);
+}
+
+@media (min-width: 768px) {
+	.grid--article {
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--spacing-xl);
+	}
+}

@@ -1,0 +1,41 @@
+.section {
+	display: flex;
+	flex-direction: column;
+
+	min-block-size: 100vh;
+	place-content: center;
+
+	&:not(:first-child, :last-child, .section--footer) {
+		border-block-start: 2px solid var(--border-primary);
+	}
+}
+
+@media (min-width: 640px) {
+	.section {
+		border-inline-start-width: 24px;
+		border-inline-end-width: 24px;
+	}
+}
+
+.section--projects {
+	padding: var(--spacing-4xl) var(--spacing-m) var(--spacing-6xl);
+}
+
+.section--glossary {
+	padding: var(--spacing-5xl) var(--spacing-m);
+}
+
+.section--footer {
+	background-color: var(--background-primary-inverse);
+	padding: var(--spacing-3xl) var(--spacing-m);
+	text-align: center;
+}
+
+@media (min-width: 640px) {
+	.section--projects,
+	.section--glossary,
+	.section--footer {
+		padding-inline-start: var(--spacing-xl);
+		padding-inline-end: var(--spacing-xl);
+	}
+}

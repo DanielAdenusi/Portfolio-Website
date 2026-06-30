@@ -1,0 +1,70 @@
+/* =========================================
+   BLOCK: .loader
+   ========================================= */
+.loader {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: var(--spacing-l);
+}
+
+/* =========================================
+   MODIFIER: .loader--fullscreen
+   ========================================= */
+.loader--fullscreen {
+	position: fixed;
+	inset-block-start: 0;
+	inset-inline-start: 0;
+	inline-size: 100vw;
+	block-size: 100vh;
+	background-color: var(--background-primary);
+	z-index: 9999;
+}
+
+/* =========================================
+   MODIFIER: .loader--inline
+   ========================================= */
+
+.loader--inline {
+	display: inline-flex;
+	padding: 0;
+
+	.loader__spinner {
+		inline-size: 24px;
+		block-size: 24px;
+		border-width: 2px;
+	}
+}
+
+/* =========================================
+   ELEMENTS: .loader__spinner, .loader__text
+   ========================================= */
+.loader__spinner {
+	inline-size: 48px;
+	block-size: 48px;
+	border: 4px solid var(--border-primary);
+	border-block-start: 4px solid var(--content-accent); /* Primary spinner color */
+	border-radius: var(--borderRadius-circle);
+	animation: loader-spin 1s linear infinite;
+}
+
+.loader__text {
+	margin-block-start: var(--spacing-m);
+	font-family: var(--fontFamily-sans);
+	color: var(--content-tertiary);
+	font-size: var(--fontSize-l);
+	font-weight: var(--fontWeight-medium);
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+@keyframes loader-spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

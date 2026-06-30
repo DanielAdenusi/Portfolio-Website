@@ -1,0 +1,73 @@
+/* 
+    Box sizing
+    Remove default margins 
+*/
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+/* Improve text rendering */
+body {
+	line-height: var(--lineHeight-body);
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Remove list styles */
+ul,
+ol {
+	list-style: none;
+}
+
+/* Remove anchor underline */
+a {
+	text-decoration: none;
+	color: inherit;
+	outline: none;
+	border: none;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+	max-inline-size: 100%;
+	display: block;
+}
+
+/* Remove button borders */
+button {
+	border: none;
+	outline: none;
+	background: none;
+	cursor: pointer;
+	font-family: inherit;
+}
+
+/* Inputs inherit fonts */
+input,
+button,
+textarea,
+select {
+	outline: none;
+	font: inherit;
+	background-color: transparent;
+	border: none;
+}
+
+/* Remove resize handles from textarea */
+textarea {
+	resize: none;
+}
+
+/* Remove animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	* {
+		transition: none !important;
+		animation: none !important;
+	}
+}

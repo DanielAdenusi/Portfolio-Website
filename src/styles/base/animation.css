@@ -1,0 +1,149 @@
+@keyframes popIn {
+	0% {
+		scale: 0.9;
+		translate: 0 10px;
+	}
+
+	100% {
+		opacity: 1;
+		scale: 1;
+		translate: 0;
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes slideInRightToLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(50px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideInLeftToRight {
+	0% {
+		opacity: 0;
+		transform: translateX(-50px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideInRightToLeft-reverse {
+	0% {
+		opacity: 1;
+		transform: translateX(0px);
+	}
+	100% {
+		opacity: 0;
+		transform: translateX(50px);
+	}
+}
+
+@keyframes slideInLeftToRight-reverse {
+	0% {
+		opacity: 1;
+		transform: translateX(0px);
+	}
+	100% {
+		opacity: 0;
+		transform: translateX(-50px);
+	}
+}
+
+@keyframes slideDownToast {
+	from {
+		transform: translateY(-20px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slideUpToast {
+	from {
+		transform: translateY(0);
+		opacity: 1;
+	}
+	to {
+		transform: translateY(-10px);
+		opacity: 0;
+	}
+}
+
+@keyframes flashHighlight {
+	0% {
+		background-color: var(--background-pressed);
+		border-radius: var(--borderRadius-m);
+	}
+	100% {
+		background-color: transparent;
+	}
+}
+
+@keyframes slideDown {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes slideUp {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes delayedFadeIn {
+	0% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 0;
+	} /* Stays completely invisible for the majority of the duration */
+	100% {
+		opacity: 1;
+	}
+}
