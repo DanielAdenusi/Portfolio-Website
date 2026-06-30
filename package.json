@@ -15,6 +15,7 @@
 		"@fontsource/inter": "^5.2.8",
 		"@fontsource/space-grotesk": "^5.2.10",
 		"@neondatabase/serverless": "^1.1.0",
+		"@vercel/analytics": "^2.0.1",
 		"@vercel/kv": "^3.0.0",
 		"emailjs-com": "^3.2.0",
 		"lucide-react": "^1.21.0",
